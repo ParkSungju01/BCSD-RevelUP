@@ -8,7 +8,7 @@ interface Props {
   onClose: () => void;
 }
 export default function MyBookModal({book, onClose}:Props){
-  const key = String(book.itemId);
+  const key = String(book.isbn13);
   const [status, setStatus] = useState<BookStatus>("none");
   const [report, setReport] = useState("");
   const [isHeart, setIsHeart] = useState(false);

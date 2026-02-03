@@ -12,7 +12,7 @@ export default function MyBookList({books, onSelect}:BookListProps){
     max-[770px]:grid-cols-3 max-[770px]:gap-4
     max-[426px]:grid-cols-2 max-[426px]:gap-3 max-[426px]:px-3">
       {books.map(book => (
-        <MyBook key={book.itemId} data={book} onClick={()=>onSelect(book)} />
+        <MyBook key={book.isbn13} data={book} onClick={()=>onSelect(book)} />
       ))}
     </div>
   )

@@ -15,7 +15,7 @@ export default function RecombookList({
       {books.length===0
       ? <div className="w-full h-298.5 text-center text-gray-500">검색결과 없음</div>
       : books.map(book => (
-        <RecomBook key={book.itemId} book={book} />
+        <RecomBook key={book.isbn13} book={book} />
       ))}
 
       {books.length>0 && <Pagination

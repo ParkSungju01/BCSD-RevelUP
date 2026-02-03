@@ -11,11 +11,10 @@ export default defineConfig({
   server: {
     /* Proxy를 사용하여 CORS 우회 */
     proxy: {
-      '/aladin': {
-        target: 'http://www.aladin.co.kr',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/aladin/, ''),
-      },
+      '/api': {
+      target: 'http://localhost:3000',
+      changeOrigin: true,
+    },
     },
   },
 })

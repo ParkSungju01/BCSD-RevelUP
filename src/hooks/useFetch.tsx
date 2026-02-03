@@ -1,5 +1,5 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import fetchApi from "../api/fetchApi";
+import fetchApi from "../api/fetchApi.tsx";
 import type { AladinBook, FetchQuery} from "../types/typesApi";
 
 
@@ -43,6 +43,7 @@ export default function useFetch({
     author: book.author,
     description: book.description,
     customerReviewRank : book.customerReviewRank,
+    isbn13: book.isbn13,
   }))
 
   return {

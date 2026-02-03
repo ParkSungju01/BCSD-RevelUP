@@ -69,7 +69,7 @@ export default function BookList({ name, onSelect }: Props) {
       max-[770px]:w-180
       max-[426px]:w-100 ">
         {books.map(book => (
-          <Book key={book.itemId} book={book} onClick={()=>onSelect(book)}/>
+          <Book key={book.isbn13} book={book} onClick={()=>onSelect(book)}/>
         ))}
       </div>
       <button

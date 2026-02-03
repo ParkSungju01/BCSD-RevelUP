@@ -7,6 +7,7 @@ export interface AladinBook{
   description: string;
   itemId: number;
   link: string;
+  isbn13: string;
 }
 export type ItemListQueryType = 
   | 'ItemNewAll'

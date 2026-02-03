@@ -7,10 +7,10 @@ export default function MainSkeleton(){
       max-[426px]:w-100">
         {[...Array(6)].map((_,index)=>(
           <div className="flex flex-col w-40 h-100" key={index}>
-            <div key={index} className="animate-pulse bg-gray-300 rounded-lg
+            <div className="animate-pulse bg-gray-300 rounded-lg
             w-40 h-60
             "/>
-            <div key={index} className="mt-5 w-40 bg-gray-300 h-5 rounded-lg animate-pulse"/>
+            <div className="mt-5 w-40 bg-gray-300 h-5 rounded-lg animate-pulse"/>
           </div>
           
         ))}
