@@ -17,7 +17,7 @@ export default async function handler(
     const params = new URLSearchParams({
       ttbkey: process.env.ALADIN_TTB_KEY as string,
       SearchTarget: 'Book',
-      output: 'js', // ✅ 반드시 js
+      output: 'js',
       Version: '20131101',
     });
 
@@ -28,7 +28,6 @@ export default async function handler(
     const response = await fetch(`${baseUrl}?${params.toString()}`);
     const text = await response.text();
 
-    // 🔥 JS 응답에서 JSON만 추출
     const jsonText = text
       .replace(/^var\s+.*?=\s*/, '')
       .replace(/;$/, '');

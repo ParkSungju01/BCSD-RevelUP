@@ -9,7 +9,7 @@ interface Props {
 export default function RecomBook({book}:Props){
   const [isHeart, setIsHeart] = useState(false);
   const [clickBtn, setClickBtn] = useState(false);
-  const key = String(book.itemId);
+  const key = String(book.isbn13);
   const getData = ()=>{
     const prev = localStorage.getItem(key);
     return prev?JSON.parse(prev) : {};

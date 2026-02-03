@@ -9,7 +9,7 @@ interface Props{
 
 
 export default function MyBook({data, onClick}:Props ){
-  const state = localStorage.getItem(String(data.itemId));
+  const state = localStorage.getItem(String(data.isbn13));
   const parsed = state ? JSON.parse(state) : null;
 
   const isReading = parsed?.reading === true;
@@ -25,7 +25,7 @@ export default function MyBook({data, onClick}:Props ){
     max-[1025px]:w-55 max-[1025px]:h-67.5
     max-[770px]:w-52.5 max-[770px]:h-72.5
     max-[426px]:w-40 max-[426px]:h-55">
-      <div className="h-48 flex justify-center bg-gray-100 rounded-xl mb-3 pt-5
+      <div className="h-45 flex justify-center bg-gray-100 rounded-xl mb-3 pt-5
       max-[1025px]:h-37.5
       max-[770px]:h-42.5
       max-[426px]:h-25">
@@ -39,7 +39,7 @@ export default function MyBook({data, onClick}:Props ){
       <h3 className="font-semibold text-sm truncate">
         {data.title}
       </h3>
-      <p className="text-xs text-gray-500 mt-1
+      <p className="text-xs text-gray-500 mt-1 h-8
       max-[426px]:text-[10px]">
         {data.author}
       </p>

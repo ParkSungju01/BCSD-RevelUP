@@ -96,7 +96,7 @@ export default function MyBookModal({book, onClose}:Props){
                 const next = e.target.value as BookStatus;
                 setStatus(next);
 
-                const raw = localStorage.getItem(String(book.itemId));
+                const raw = localStorage.getItem(String(book.isbn13));
                 const prev = raw ? JSON.parse(raw) : {};
 
                 const newData={
@@ -135,7 +135,7 @@ export default function MyBookModal({book, onClose}:Props){
                 onClose();
               }
               else{
-                const raw = localStorage.getItem(String(book.itemId));
+                const raw = localStorage.getItem(String(book.isbn13));
                 const parsed = raw?JSON.parse(raw):{};
                 const newData = {
                   ...parsed,
