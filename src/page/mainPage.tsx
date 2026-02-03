@@ -7,7 +7,7 @@ import { useState } from "react"
 import type { AladinBook } from "../types/typesApi"
 export default function Main(){
   const [selected,setSelected] = useState<AladinBook | null>(null);
-
+  
   return(
     <div className="pt-15">
       {selected && <BookModal book={selected} onClose={()=>setSelected(null)}/>}

@@ -1,9 +1,11 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-
+console.log('ALADIN_TTB_KEY:', process.env.ALADIN_TTB_KEY)
 export default async function handler(
   req: VercelRequest,
   res: VercelResponse
 ) {
+  console.log('🔥 handler called');
+
   try {
     const { mode = 'list', ...rest } = req.query;
 
@@ -15,7 +17,7 @@ export default async function handler(
     const params = new URLSearchParams({
       ttbkey: process.env.ALADIN_TTB_KEY as string,
       SearchTarget: 'Book',
-      output: 'json',
+      output: 'js', // ✅ 반드시 js
       Version: '20131101',
     });
 
@@ -24,10 +26,23 @@ export default async function handler(
     });
 
     const response = await fetch(`${baseUrl}?${params.toString()}`);
-    const data = await response.json();
-    res.status(200).json(data);
+    const text = await response.text();
 
+    // 🔥 JS 응답에서 JSON만 추출
+    const jsonText = text
+      .replace(/^var\s+.*?=\s*/, '')
+      .replace(/;$/, '');
+
+    const data = JSON.parse(jsonText);
+
+    res.status(200).json(data);
   } catch (error) {
-    res.status(500).json({ message: 'Aladin API Proxy Error' });
+    console.error('ALADIN API ERROR:', error);
+
+    res.status(500).json({
+      message: 'Aladin API Proxy Error',
+      env: process.env.ALADIN_TTB_KEY,
+      error: String(error),
+    });
   }
 }
