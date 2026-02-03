@@ -40,7 +40,9 @@ export default function MyBook({data, onClick}:Props ){
         {data.title}
       </h3>
       <p className="text-xs text-gray-500 mt-1 h-8
-      max-[426px]:text-[10px]">
+      max-[1025px]:h-6.5
+      max-[770px]:text-[11px]
+      max-[426px]:text-[10px] max-[426px]:h-6">
         {data.author}
       </p>
       {statusLabel && <span className="inline-block mb-2 px-3 py-1 text-xs rounded-full bg-green-100 text-emerald-700 mt-2.5">

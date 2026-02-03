@@ -1,6 +1,7 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import fetchApi from "../api/fetchApi.tsx";
-import type { AladinBook, FetchQuery} from "../types/typesApi";
+import fetchApi from "../api/fetchApi.ts";
+import type { AladinBook, FetchQuery} from "../types/typesApi.ts";
+import useDecode from "./useDecode.ts";
 
 
 export default function useFetch({
@@ -31,7 +32,7 @@ export default function useFetch({
     },
     
   })
-  // console.log(newBooks.data);
+
   const items = newBooks.data?.item??[];
   const books: AladinBook[]= 
   items.map(book => ({
@@ -41,7 +42,7 @@ export default function useFetch({
     itemId: book.itemId,
     link: book.link,
     author: book.author,
-    description: book.description,
+    description: useDecode(book.description),
     customerReviewRank : book.customerReviewRank,
     isbn13: book.isbn13,
   }))

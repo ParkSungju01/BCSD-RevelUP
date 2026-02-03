@@ -23,11 +23,11 @@ export default function RecomBook({book}:Props){
       setIsHeart(!!parse.heart);
       setClickBtn(!!parse.reading);
     }
-  },[book.itemId])
+  },[book.isbn13])
   return(
     <div className="w-200 h-auto flex border-b border-b-gray-300 pb-2.5 mb-2.5  
     max-[770px]:w-180
-    max-[426px]:w-100">
+    max-[426px]:w-100 max-[426px]:h-33">
       <div className="h-30 flex justify-center items-center
       max-[426px]:w-30">
         <img src={book.cover} className="w-20 h-30 ml-5"/>
@@ -40,7 +40,7 @@ export default function RecomBook({book}:Props){
         max-[426px]:text-[14px] max-[426px]:w-55 max-[426px]:ml-0" >{book.title}
         </p>
         <p className="w-120 h-auto ml-10 line-clamp-2 font-sans mt-2.5
-        max-[426px]:text-[12px] max-[426px]:w-55 max-[426px]:ml-0 max-[426px]:h-13">
+        max-[426px]:text-[12px] max-[426px]:w-55 max-[426px]:ml-0 max-[426px]:h-13 max-[426px]:mt-1.5">
           {book.description || "줄거리 정보가 없습니다"}
         </p>
         <div className="ml-10 flex mt-auto items-center mb-1
