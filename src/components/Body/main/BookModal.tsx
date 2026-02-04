@@ -29,11 +29,15 @@ export default function BookModal({book, onClose}:Props){
       navigate(`/?query${book.itemId}`)
     },[book.itemId])
   return(
-    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 ">
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50" onClick={()=>{
+      onClose();
+      navigate('/')
+    }}>
       <div className="
       bg-slate-50 w-200 h-100 rounded-2xl p-6 relative flex
       max-[770px]:w-180
-      max-[426px]:w-80 max-[426px]:h-100">
+      max-[426px]:w-80 max-[426px]:h-100"
+      onClick={(e)=>e.stopPropagation()}>
         <button
           onClick={()=>{
             onClose();
@@ -97,8 +101,9 @@ export default function BookModal({book, onClose}:Props){
                 구매하기
               </button>
               <button
-                className="px-6 py-2 rounded-full bg-white text-black font-medium hover:bg-gray-300
-                max-[426px]:w-20 max-[426px]:h-8 max-[426px]:p-1 max-[426px]:text-[10px]"
+                className={`px-6 py-2 rounded-full text-black font-medium hover:bg-gray-300
+                ${clickBtn?"bg-green-200 border-gray-100":"bg-white border-gray-400"} cursor-pointer
+                max-[426px]:w-20 max-[426px]:h-8 max-[426px]:p-1 max-[426px]:text-[10px]`}
                 onClick={()=>{
                   const next = !clickBtn;
                   const latest = getData();

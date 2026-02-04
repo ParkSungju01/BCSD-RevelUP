@@ -73,8 +73,8 @@ export default function RecomBook({book}:Props){
         <button className="h-10 w-20 rounded-xl bg-green-600 text-white font-medium hover:bg-green-700 mb-2.5 cursor-pointer
         max-[426px]:w-12 max-[426px]:text-[10px] max-[426px]:h-8"
         onClick={()=>window.open(book.link, "_blank")}>구매하기</button>
-        <button className="border border-gray-400 h-10 w-20 rounded-xl bg-white  cursor-pointer hover:bg-gray-300
-        max-[426px]:w-12 max-[426px]:text-[10px] max-[426px]:h-8"
+        <button className={`border h-10 w-20 rounded-xl ${clickBtn?"bg-green-200 border-gray-100":"bg-white border-gray-400"}  cursor-pointer hover:bg-gray-300
+        max-[426px]:w-12 max-[426px]:text-[10px] max-[426px]:h-8`}
         onClick={()=>{
           const next = !clickBtn;
           setClickBtn(next);

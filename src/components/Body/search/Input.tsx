@@ -30,7 +30,7 @@ export default function Input({
 
   return(
     <div className="w-full h-25 mt-20 flex items-center flex-col">
-      <div className="w-200 h-10 shadow-md rounded-3xl mb-2.5 bg-white
+      <div className="flex  w-200 h-10 shadow-md rounded-3xl mb-2.5 bg-white
       max-[770px]:w-180
       max-[426px]:w-100">
         <input placeholder="읽고 싶은 책을 검색해보세요" className="w-170 ml-10 pl-2.5
@@ -39,7 +39,7 @@ export default function Input({
         value={value}
         onChange={(e)=> setValue(e.target.value)}
         onKeyDown={onKeyDown}/>
-        <button className="w-6 h-6 relative top-2 left-8 cursor-pointer" onClick={()=>{
+        <button className="w-6 h-6 relative top-2 left-8 cursor-pointer " onClick={()=>{
           if(!value.trim()) return;
           navigate(`/search?query=${encodeURIComponent(value.trim())}&page=1`);
           }}>
