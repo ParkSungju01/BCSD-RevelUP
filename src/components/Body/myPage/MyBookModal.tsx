@@ -13,19 +13,20 @@ export default function MyBookModal({book, onClose}:Props){
   const [report, setReport] = useState("");
   const [isHeart, setIsHeart] = useState(false);
   useEffect(() => {
-  const raw = localStorage.getItem(key);
-  if (!raw) return;
+    const raw = localStorage.getItem(key);
 
-  try {
-    const parsed = JSON.parse(raw);
-    setIsHeart(!!parsed.heart);
-    setReport(parsed.bookReport);
-  } catch {
-    setIsHeart(false);
-    setReport("");
-  }
-}, [key]);
+    if (!raw) return;
 
+    try {
+      const parsed = JSON.parse(raw);
+      setIsHeart(!!parsed.heart);
+      setReport(parsed.bookReport);
+    } catch {
+      setIsHeart(false);
+      setReport("");
+    }
+  }, [key]);
+  console.log(localStorage.getItem(key));
   useEffect(()=>{
     const raw = localStorage.getItem(key);
     if(!raw) return;
@@ -131,20 +132,15 @@ export default function MyBookModal({book, onClose}:Props){
   
           <div className="w-full justify-end flex flex-col gap-2">
             <button className="cursor-pointer bg-green-600 text-white rounded-xl h-10" onClick={()=>{
-              if(report===""){
-                onClose();
+              const raw = localStorage.getItem(String(book.isbn13));
+              const parsed = raw?JSON.parse(raw):{};
+              const newData = {
+                ...parsed,
+                bookReport : report,
               }
-              else{
-                const raw = localStorage.getItem(String(book.isbn13));
-                const parsed = raw?JSON.parse(raw):{};
-                const newData = {
-                  ...parsed,
-                  bookReport : report,
-                }
-                localStorage.setItem(key,JSON.stringify(newData));
-                setReport("");
-                onClose();
-              }
+              localStorage.setItem(key,JSON.stringify(newData));
+              setReport("");
+              onClose();
             }}>저장</button>
             <button onClick={()=>{window.open(book.link,"_blank")}} className="cursor-pointer bg-white border border-gray-400 rounded-xl h-10">구매하기</button>
           </div>
