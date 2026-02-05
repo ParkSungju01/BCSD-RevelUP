@@ -32,7 +32,7 @@ export default function useFetch({
     },
     
   })
-
+  
   const items = newBooks.data?.item??[];
   const books: AladinBook[]= 
   items.map(book => ({
@@ -49,6 +49,6 @@ export default function useFetch({
 
   return {
     books,
-    totalResults: 100,
+    totalResults: newBooks.data?.totalResults??0,
   };
 }

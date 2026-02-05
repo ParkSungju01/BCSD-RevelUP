@@ -12,7 +12,7 @@ export default function BestSeller({onSelect}:Props){
   max-[1025px]:w-250
   max-[770px]:w-180
   max-[426px]:w-100">
-    <h1 className="text-2xl font-sans font-bold self-start mt-5 mb-3
+    <h1 className="text-2xl font-bold self-start mt-5 mb-3
     max-[770px]:text-xl">베스트셀러</h1>
     <Suspense fallback={<MainSkeleton/>}>
       <BookList name="Bestseller" onSelect={onSelect}/>

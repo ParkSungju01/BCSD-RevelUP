@@ -11,7 +11,7 @@ export default function Book( {book, onClick}:BookProps){
         className="h-auto w-40 max-h-60 rounded-lg transition-transform hover:scale-105"
         />
       </div>
-      <p className="mt-5 w-40 text-sm text-center text-gray-800 truncate font-sans font-semibold">
+      <p className="mt-5 w-40 text-sm text-center text-gray-800 truncate font-semibold">
         {book.title}
       </p>
 

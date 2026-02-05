@@ -26,12 +26,13 @@ export default function BookModal({book, onClose}:Props){
         setIsHeart(!!parse.heart);
         setClickBtn(!!parse.reading);
       }
-      navigate(`/?query${book.itemId}`)
+      navigate(`/?query${book.itemId}`);
     },[book.itemId])
+
   return(
     <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50" onClick={()=>{
       onClose();
-      navigate('/')
+      navigate('/');
     }}>
       <div className="
       bg-slate-50 w-200 h-100 rounded-2xl p-6 relative flex
@@ -66,7 +67,6 @@ export default function BookModal({book, onClose}:Props){
             <h2 className="text-xl font-bold mb-2
             max-[426px]:text-lg">
               {book.title}
-              
             </h2>
 
             <p className="text-sm text-gray-500 mb-4

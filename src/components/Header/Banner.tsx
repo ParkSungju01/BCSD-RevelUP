@@ -11,7 +11,7 @@ export default function Banner(){
       <div onClick={()=>{
         navigate("/");
       }} className="cursor-pointer">
-        <h1 className="text-3xl font-sans font-semibold tracking-tight text-emerald-600 h-full w-35 flex justify-center items-center ml-2.5">
+        <h1 className="text-3xl font-semibold tracking-tight text-emerald-600 h-full w-35 flex justify-center items-center ml-2.5">
         Revel Up
         </h1>
       </div>

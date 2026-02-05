@@ -41,7 +41,7 @@ export default function Input({
         onKeyDown={onKeyDown}/>
         <button className="w-6 h-6 relative top-2 left-8 cursor-pointer " onClick={()=>{
           if(!value.trim()) return;
-          navigate(`/search?query=${encodeURIComponent(value.trim())}&page=1`);
+          navigate(`/search?query=${encodeURIComponent(value.trim())}&page=1&type=${searchType}`);
           }}>
           <img src={search} className="w-6 h-6 max-[770px]:w-5 max-[770px]:h-5
           max-[426px]:w-4 max-[426px]:h-4"/>

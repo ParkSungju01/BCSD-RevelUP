@@ -8,7 +8,7 @@ export default async function fetchApi({
   listQueryType = 'ItemNewAll',
   keyword,
   searchQueryType = 'Title',
-  maxResult = 10,
+  maxResult,
   start = 1,
 }: FetchBooksParam): Promise<AladinItemResponse> {
   const params = new URLSearchParams({

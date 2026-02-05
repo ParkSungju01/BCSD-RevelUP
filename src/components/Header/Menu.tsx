@@ -10,7 +10,6 @@ export default function Menu(){
   return(
   <div className="h-full w-80 flex justify-center items-center 
   max-[1025px]:justify-end
-  max-[770px]:justify-end
   max-[426px]:w-40 max-[426px]:mr-2.5
 ">
     <button className={`h-10 w-10 cursor-pointer border-b-4 ml-2.5

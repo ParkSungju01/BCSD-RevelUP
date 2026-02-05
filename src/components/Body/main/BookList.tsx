@@ -9,10 +9,10 @@ interface Props{
 
 
 export default function BookList({ name, onSelect }: Props) {
-    const {books} = useFetch({
-      mode:"list",
-      name,
-      page: 1})
+  const {books} = useFetch({
+    mode:"list",
+    name,
+    page: 1})
   const ITEM_WIDTH = 196;
   const INTERVAL = 2000; 
   const sliderRef = useRef<HTMLDivElement | null>(null);
@@ -21,7 +21,7 @@ export default function BookList({ name, onSelect }: Props) {
   useEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
-
+    
     const interval = setInterval(() => {
       const maxScroll = slider.scrollWidth - slider.clientWidth;
 
